@@ -17,8 +17,22 @@ class EmployeeContainer extends Component {
     .then(res => {this.setState({ allEmployees: res.data.results, filteredEmployees: res.data.results}); console.log(this.state.allEmployees);})
     .catch(err => console.log(err));
   }
-
   
+  render() {
+    return (
+      <>
+      <Jumbotron />
+      <SearchBar
+      value={this.state.search}
+      handleInputChange={this.handleInputChange}
+      handleFormSubmit={this.handleFormSubmit}
+      resetTable={this.resetTable}
+      />
+      <Table employees= {this.state.filteredEmployees} />
+      </>
+    )
+  }
+
 };
 
 export default EmployeeContainer;
