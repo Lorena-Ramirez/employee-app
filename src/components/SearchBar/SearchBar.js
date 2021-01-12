@@ -15,14 +15,7 @@ function SearchBar(props) {
           className="form-control"
           placeholder="Search For an Employee"
           id="search"
-        />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
-          Search
-        </button>
-        <button onClick={props.resetTable} className="btn btn-primary">
-          Reset
-        </button>
-        
+        />        
         </div>
       </div>
     </form>
