@@ -1,4 +1,3 @@
-# employee-app
 # Employee-Directory
 ## Description
   ---
