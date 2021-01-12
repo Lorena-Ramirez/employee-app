@@ -18,6 +18,23 @@ class EmployeeContainer extends Component {
     .catch(err => console.log(err));
   }
 
+  resetTable= event => {
+    event.preventDefault();
+    this.setState({
+      filteredEmployees: this.state.allEmployees
+    });
+  };
+
+  filterEmployee() {
+    if(this.state.filteredEmployees === null){
+      return
+    }
+    else{
+      this.setState({
+        filteredEmployees: this.state.allEmployees.filter(employee => employee.name.first.includes(this.state.search))
+      });
+    }
+  };
 
   searchEmployee = query => {
     API.search(query)
