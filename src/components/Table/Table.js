@@ -7,11 +7,9 @@ function Table(props) {
       <thead>
         <tr>
           <th scope="col">Image</th>
-          <th scope="col">
+          <th scope="col" onClick={props.sortTable} style={{"cursor":"pointer"}}>
             Name 
-            <button onClick={props.sortTable} className="btn btn-primary">
-            Sort
-            </button>
+           
         </th>
           <th scope="col">Phone</th>
           <th scope="col">Email</th>
