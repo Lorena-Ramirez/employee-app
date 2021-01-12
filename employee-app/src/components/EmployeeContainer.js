@@ -17,6 +17,14 @@ class EmployeeContainer extends Component {
     .then(res => {this.setState({ allEmployees: res.data.results, filteredEmployees: res.data.results}); console.log(this.state.allEmployees);})
     .catch(err => console.log(err));
   }
+
+
+  searchEmployee = query => {
+    API.search(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
+  };
+
   
   handleInputChange = event => {
     const value = event.target.value;
