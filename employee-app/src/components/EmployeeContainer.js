@@ -18,6 +18,21 @@ class EmployeeContainer extends Component {
     .catch(err => console.log(err));
   }
   
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchEmployee(this.state.search);
+    this.filterEmployee(); 
+  };
+
+
   render() {
     return (
       <>
