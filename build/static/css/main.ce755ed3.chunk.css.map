@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/SearchBar/styles.css"],"names":[],"mappings":"AAAA,YACE,SAAU,CACV,WACF,CAEA,kBACC,YAAa,CACb,kBAAmB,CACpB,yBACA","file":"main.ce755ed3.chunk.css","sourcesContent":[".searchForm{\n  width: 50%;\n  margin: auto;\n}\n\n.search_container{\n display: flex;\n flex-direction: row;\nalign-items: space-between;\n}"]}

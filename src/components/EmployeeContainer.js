@@ -7,30 +7,46 @@ import API from "../utils/API";
 
 class EmployeeContainer extends Component {
   state = {
-    allEmployees: null,
-    filteredEmployees: null,
-    sortedEmployees: null,
+    allEmployees: "",
+    filteredEmployees: "",
     search: "",
-    isSorting: false,
+    isSorted: false,
 
   };
 
   componentDidMount() {
     API.search()
-      .then(res => { this.setState({ allEmployees: res.data.results, filteredEmployees: res.data.results }); console.log(this.state.allEmployees); })
+      .then(res => { this.setState({ allEmployees: res.data.results, filteredEmployees: res.data.results });})
       .catch(err => console.log(err));
   }
-  sortTable() {
+  sortTable =()=> {
+    const filteredList = this.state.filteredEmployees.sort((a, b)=> {
+      const user1 = a.name.first;
+      const user2 = b.name.first
+      if(this.state.isSorted){
+        if (user1 > user2) {
+          return 1;
+        }
+        if (user1 < user2) {
+          return -1;
+        }
+        return 0;
+      }
+      else{
+        if (user1 < user2) {
+          return 1;
+        }
+        if (user1 > user2) {
+          return -1;
+        }
+        return 0;
+      }
+    })
     this.setState({
-      filteredEmployees: this.state.allEmployees.sort()
+      filteredEmployees: filteredList,
+      isSorted: !this.state.isSorted
     });
-    console.log(this.state.filterEmployees);
   };
-
-    // this.setState({
-    //  isSorting: !this.state.isSorting
-    // })
-
 
   filterEmployees(value) {
     let filteredEmployees = this.state.allEmployees;
@@ -43,13 +59,6 @@ class EmployeeContainer extends Component {
       filteredEmployees: filteredEmployees
     })
   };
-
-  // searchEmployee = query => {
-  //   API.search(query)
-  //     .then(res => this.setState({ result: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
 
   handleInputChange = event => {
     const value = event.target.value;

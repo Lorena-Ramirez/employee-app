@@ -8,7 +8,7 @@ function Jumbotron() {
       }}
     >
       <h1 className="display-4">Employee Directory</h1>
-      <p className="lead">View Employee Directory, or search for a specific employee</p>
+      <p className="lead">View full employee directory, or search for a specific employee. Order and unorder the list alphabetically by clicking Name columun</p>
     </div>
   );
 }
